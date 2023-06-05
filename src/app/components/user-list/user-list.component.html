@@ -1,0 +1,24 @@
+<h2>User List</h2>
+
+<input
+  class="search-input"
+  type="text"
+  [(ngModel)]="searchText"
+  (keyup)="filterUsers()"
+  placeholder="Search by name"
+/>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+  </tr>
+  <tr *ngFor="let user of filteredUsers" [routerLink]="['/users', user.id]">
+    <td>{{ user.id }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.phone }}</td>
+  </tr>
+</table>
